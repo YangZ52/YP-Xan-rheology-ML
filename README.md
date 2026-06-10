@@ -103,10 +103,3 @@ The current inverse-design analysis recommends a small prospective validation se
 | High-elasticity target | 26.5 | 0.385 |
 
 These formulations are intended for new rheology measurements using the same viscosity, frequency-sweep, and strain-sweep protocols.
-
-## Notes For Paper Submission
-
-- Keep `outputs/` out of git unless a journal specifically requests generated artifacts in the repository.
-- Archive paper-ready figures/tables separately or copy final selected files into `figures/` intentionally.
-- Replace absolute local paths in data-preparation scripts before public release if sharing with reviewers.
-- Add DOI, citation, license, and data repository links once finalized.
