@@ -1,0 +1,38 @@
+# macOS / editor metadata
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Node runtime/dependencies used by local Codex/runtime tooling
+node_modules
+node_modules/
+
+# Generated analysis outputs. Regenerate with scripts or archive separately.
+outputs/
+
+# Local raw/private data should not be committed.
+data/raw/
+data/interim/
+data/processed/
+*.xlsx
+*.xls
+
+# Large generated figures/tables should be copied intentionally if needed.
+figures/generated/
+*.tiff
+*.tif
+
+# Logs
+*.log

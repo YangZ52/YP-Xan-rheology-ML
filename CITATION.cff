@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated manuscript."
+title: "Machine-learning-guided rheology prediction and inverse design of yeast protein-xanthan gum formulations"
+authors:
+  - family-names: "TBD"
+    given-names: "TBD"
+date-released: 2026-06-10
+version: "0.1.0"
+license: "NOASSERTION"
+
