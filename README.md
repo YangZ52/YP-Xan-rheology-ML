@@ -95,10 +95,10 @@ Internal validation is formulation-based. Entire formulations are held out as un
 
 The inverse-design analysis selected the following formulations for experimental validation:
 
-| Target property | Predicted value | Yeast protein (wt%) | Xanthan gum (wt%) | Experimental value | Relative error (%) |
-|---|---:|---:|---:|---:|---:|
-| eta50 | 200 mPa s | 15.0 | 0.335 | 150.1 +/- 1.1 | -24.9 |
-| eta50 | 200 mPa s | 10.25 | 0.465 | 216.7 +/- 8.8 | 8.4 |
-| eta50 | 500 mPa s | 24.5 | 0.260 | 404.5 +/- 17.2 | -19.1 |
-| G' at 1 Hz | 100 Pa | 24.75 | 0.295 | 70.6 +/- 4.7 | -29.4 |
-| G' at 1 Hz | 500 Pa | 26.5 | 0.385 | 421.9 +/- 69.7 | -15.6 |
+| Target property | Target value | Yeast protein (wt%) | Xanthan gum (wt%) |
+|---|---:|---:|---:|
+| eta50 | 200 mPa s | 15.0 | 0.335 |
+| eta50 | 200 mPa s | 10.25 | 0.465 |
+| eta50 | 500 mPa s | 24.5 | 0.260 |
+| G' at 1 Hz | 100 Pa | 24.75 | 0.295 |
+| G' at 1 Hz | 500 Pa | 26.5 | 0.385 |

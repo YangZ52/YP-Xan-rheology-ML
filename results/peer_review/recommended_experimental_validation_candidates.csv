@@ -1,6 +1,6 @@
-target_property,predicted_value,yeast_protein_wt_pct,xanthan_gum_wt_pct,experimental_value,relative_error_pct
-eta50,200 mPa s,15.0,0.335,150.1 +/- 1.1,-24.9
-eta50,200 mPa s,10.25,0.465,216.7 +/- 8.8,8.4
-eta50,500 mPa s,24.5,0.260,404.5 +/- 17.2,-19.1
-G_prime_1Hz,100 Pa,24.75,0.295,70.6 +/- 4.7,-29.4
-G_prime_1Hz,500 Pa,26.5,0.385,421.9 +/- 69.7,-15.6
+target_property,target_value,yeast_protein_wt_pct,xanthan_gum_wt_pct
+eta50,200 mPa s,15.0,0.335
+eta50,200 mPa s,10.25,0.465
+eta50,500 mPa s,24.5,0.260
+G_prime_1Hz,100 Pa,24.75,0.295
+G_prime_1Hz,500 Pa,26.5,0.385

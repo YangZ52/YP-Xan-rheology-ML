@@ -14,7 +14,7 @@ This directory contains compact result tables included for manuscript peer revie
   Surrogate-model validation metrics used to support inverse-design scoring.
 
 - `peer_review/recommended_experimental_validation_candidates.csv`  
-  Final inverse-designed formulations selected for experimental validation, with target values, measured values, and relative errors.
+  Final inverse-designed formulations selected for experimental validation, with target values and formulation composition.
 
 ## Notes
 
