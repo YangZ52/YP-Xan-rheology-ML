@@ -31,9 +31,9 @@ except Exception:  # pragma: no cover
     XGBRegressor = None
 
 
-DATA_DIR = Path("/Users/zhiy/Documents/Rheology ML/outputs/ml_ready_xanthan_positive_20260529")
+DATA_DIR = Path(__file__).resolve().parents[1] / "outputs" / "ml_ready_xanthan_positive_20260529"
 RUN_ID = os.environ.get("RHEOLOGY_ML_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
-OUT_DIR = Path(f"/Users/zhiy/Documents/Rheology ML/outputs/ML_results_xanthan_positive_{RUN_ID}")
+OUT_DIR = Path(__file__).resolve().parents[1] / "outputs" / f"ML_results_xanthan_positive_{RUN_ID}"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 INCLUDE_UNCERTAINTY_OUTPUTS = False
 INCLUDE_BAGGED_GPR = False
@@ -1014,7 +1014,7 @@ def run_inverse_design_and_bayesian():
 def copy_code_snapshot():
     code_dir = OUT_DIR / "code"
     code_dir.mkdir(parents=True, exist_ok=True)
-    script_dir = Path("/Users/zhiy/Documents/Rheology ML/scripts")
+    script_dir = Path(__file__).resolve().parents[1] / "scripts"
     for name in [
         "run_xanthan_positive_ml_benchmark.py",
         "prepare_rheology_ml_data.py",

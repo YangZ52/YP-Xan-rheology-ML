@@ -17,10 +17,10 @@ from sklearn.feature_selection import mutual_info_regression
 from sklearn.preprocessing import StandardScaler
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "outputs" / "ml_ready_xanthan_positive_20260529"
 OUT_ROOT = ROOT / "outputs"
-ONEDRIVE_ROOT = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
+ARCHIVE_ROOT = Path(os.environ.get("RHEOLOGY_ARCHIVE_ROOT", ROOT / "outputs"))
 RUN_ID = os.environ.get("RHEOLOGY_LAOS_DESCRIPTOR_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
 OUT_DIR = OUT_ROOT / f"LAOS_descriptor_HB_correlation_{RUN_ID}"
 DPI = 600

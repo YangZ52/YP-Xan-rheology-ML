@@ -10,9 +10,9 @@ import numpy as np
 import pandas as pd
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "outputs" / "ml_ready_xanthan_positive_20260529"
-ONEDRIVE_ROOT = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
+ARCHIVE_ROOT = Path(os.environ.get("RHEOLOGY_ARCHIVE_ROOT", ROOT / "outputs"))
 RUN_ID = os.environ.get("RHEOLOGY_RANGE_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
 OUT_DIR = ROOT / "outputs" / f"rheology_data_range_examples_{RUN_ID}"
 DPI = 400
@@ -171,15 +171,15 @@ def main() -> None:
     pd.DataFrame(summary_rows).to_csv(OUT_DIR / "rheology_data_range_selected_formulations.csv", index=False)
     shutil.copy2(Path(__file__), OUT_DIR / Path(__file__).name)
 
-    onedrive_dir = None
-    if os.environ.get("COPY_TO_ONEDRIVE", "0") == "1":
-        onedrive_dir = ONEDRIVE_ROOT / "time_lapse" / OUT_DIR.name
-        if onedrive_dir.exists():
-            shutil.rmtree(onedrive_dir)
-        shutil.copytree(OUT_DIR, onedrive_dir)
+    archive_dir = None
+    if os.environ.get("COPY_TO_ARCHIVE", "0") == "1":
+        archive_dir = ARCHIVE_ROOT / "time_lapse" / OUT_DIR.name
+        if archive_dir.exists():
+            shutil.rmtree(archive_dir)
+        shutil.copytree(OUT_DIR, archive_dir)
     print(OUT_DIR)
-    if onedrive_dir is not None:
-        print(onedrive_dir)
+    if archive_dir is not None:
+        print(archive_dir)
 
 
 if __name__ == "__main__":

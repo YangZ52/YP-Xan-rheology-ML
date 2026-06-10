@@ -14,7 +14,7 @@ MPLCONFIGDIR = Path("/private/tmp/rheology_ml_matplotlib")
 MPLCONFIGDIR.mkdir(parents=True, exist_ok=True)
 os.environ["MPLCONFIGDIR"] = str(MPLCONFIGDIR)
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIR = ROOT / "outputs" / "bayesian_inverse_design_no_new_experiments_20260531_145221"
 DATA_DIR = ROOT / "outputs" / "ml_ready_xanthan_positive_20260529"
 RUN_ID = datetime.now().strftime("%Y%m%d_%H%M%S")

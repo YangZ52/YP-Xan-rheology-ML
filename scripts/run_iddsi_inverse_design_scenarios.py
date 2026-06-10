@@ -13,10 +13,11 @@ import pandas as pd
 from scipy.stats import norm
 
 
-BASE_RESULTS = Path("/Users/zhiy/Documents/Rheology ML/outputs/ML_results_xanthan_positive_20260529_221920")
-DATA_DIR = Path("/Users/zhiy/Documents/Rheology ML/outputs/ml_ready_xanthan_positive_20260529")
+ROOT = Path(__file__).resolve().parents[1]
+BASE_RESULTS = Path(os.environ.get("RHEOLOGY_BASE_RESULTS", ROOT / "outputs" / "ML_results_xanthan_positive_20260529_221920"))
+DATA_DIR = ROOT / "outputs" / "ml_ready_xanthan_positive_20260529"
 RUN_ID = os.environ.get("RHEOLOGY_IDDSI_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
-OUT_DIR = Path(f"/Users/zhiy/Documents/Rheology ML/outputs/IDDSI_inverse_design_scenarios_{RUN_ID}")
+OUT_DIR = ROOT / "outputs" / f"IDDSI_inverse_design_scenarios_{RUN_ID}"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 

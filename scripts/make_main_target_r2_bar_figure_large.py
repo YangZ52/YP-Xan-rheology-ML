@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 METRICS_PATH = ROOT / "outputs" / "reviewer_performance_figures_20260530_205058" / "main_target_internal_external_metrics.csv"
 RUN_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
 OUT_DIR = ROOT / "outputs" / f"main_target_r2_bar_large_labels_{RUN_ID}"

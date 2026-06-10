@@ -32,9 +32,9 @@ except Exception:  # pragma: no cover
     torch = None
 
 
-DATA_DIR = Path("/Users/zhiy/Documents/Rheology ML/outputs/ml_ready_xanthan_positive_20260529")
+DATA_DIR = Path(__file__).resolve().parents[1] / "outputs" / "ml_ready_xanthan_positive_20260529"
 RUN_ID = os.environ.get("RHEOLOGY_ML_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
-OUT_DIR = Path(f"/Users/zhiy/Documents/Rheology ML/outputs/single_vs_multioutput_{RUN_ID}")
+OUT_DIR = Path(__file__).resolve().parents[1] / "outputs" / f"single_vs_multioutput_{RUN_ID}"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 FEATURES = ["yp_pct", "xanthan_pct"]
@@ -537,7 +537,7 @@ def copy_code_snapshot():
     code_dir = OUT_DIR / "code"
     code_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(Path(__file__), code_dir / Path(__file__).name)
-    req = Path("/Users/zhiy/Documents/Rheology ML/requirements-multioutput-gp.txt")
+    req = Path(__file__).resolve().parents[1] / "requirements-multioutput-gp.txt"
     if req.exists():
         shutil.copy2(req, code_dir / req.name)
 

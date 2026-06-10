@@ -10,8 +10,8 @@ from matplotlib.patches import Circle, FancyArrowPatch, FancyBboxPatch, PathPatc
 from matplotlib.path import Path as MplPath
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
-ONEDRIVE_ROOT = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
+ROOT = Path(__file__).resolve().parents[1]
+ARCHIVE_ROOT = Path(os.environ.get("RHEOLOGY_ARCHIVE_ROOT", ROOT / "outputs"))
 RUN_ID = os.environ.get("ML_WORKFLOW_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
 OUT_DIR = ROOT / "outputs" / f"ml_workflow_schematic_{RUN_ID}"
 DPI = 450
@@ -346,12 +346,12 @@ def main() -> None:
     fig.savefig(OUT_DIR / "Figure_ML_workflow_inverse_design_schematic.tiff", dpi=DPI)
     shutil.copy2(Path(__file__), OUT_DIR / Path(__file__).name)
 
-    if os.environ.get("COPY_TO_ONEDRIVE", "0") == "1":
-        onedrive_dir = ONEDRIVE_ROOT / "time_lapse" / OUT_DIR.name
-        if onedrive_dir.exists():
-            shutil.rmtree(onedrive_dir)
-        shutil.copytree(OUT_DIR, onedrive_dir)
-        print(onedrive_dir)
+    if os.environ.get("COPY_TO_ARCHIVE", "0") == "1":
+        archive_dir = ARCHIVE_ROOT / "time_lapse" / OUT_DIR.name
+        if archive_dir.exists():
+            shutil.rmtree(archive_dir)
+        shutil.copytree(OUT_DIR, archive_dir)
+        print(archive_dir)
 
     print(OUT_DIR)
 

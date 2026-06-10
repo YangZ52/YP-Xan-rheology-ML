@@ -27,10 +27,10 @@ except Exception:
     XGBRegressor = None
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
 DATA_DIR = OUTPUTS / "ml_ready_xanthan_positive_20260529"
-ONEDRIVE_ROOT = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
+ARCHIVE_ROOT = Path(os.environ.get("RHEOLOGY_ARCHIVE_ROOT", ROOT / "outputs"))
 RUN_ID = os.environ.get("RHEOLOGY_PUBLICATION_PACKAGE_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
 OUT_DIR = OUTPUTS / f"publication_package_{RUN_ID}"
 

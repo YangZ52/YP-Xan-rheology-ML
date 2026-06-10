@@ -17,9 +17,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
-ONEDRIVE_ROOT = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
+ARCHIVE_ROOT = Path(os.environ.get("RHEOLOGY_ARCHIVE_ROOT", ROOT / "outputs"))
 BENCHMARK = OUTPUTS / "ML_results_xanthan_positive_20260530_131336"
 DATA_DIR = OUTPUTS / "ml_ready_xanthan_positive_20260529"
 RUN_ID = os.environ.get("RHEOLOGY_LENGTHSCALE_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")

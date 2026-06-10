@@ -32,7 +32,7 @@ except Exception:  # pragma: no cover
     XGBRegressor = None
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "outputs" / "ml_ready_xanthan_positive_20260529"
 RUN_ID = os.environ.get("RHEOLOGY_COMPACT_DESCRIPTOR_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
 OUT_DIR = ROOT / "outputs" / f"compact_descriptor_laos_figures_{RUN_ID}"

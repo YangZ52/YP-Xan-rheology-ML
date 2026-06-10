@@ -4,8 +4,8 @@ from pathlib import Path
 import pandas as pd
 
 
-SRC = Path("/Users/zhiy/Documents/Rheology ML/outputs/ml_ready_20260529")
-OUT = Path("/Users/zhiy/Documents/Rheology ML/outputs/ml_ready_xanthan_positive_20260529")
+SRC = Path(__file__).resolve().parents[1] / "outputs" / "ml_ready_20260529"
+OUT = Path(__file__).resolve().parents[1] / "outputs" / "ml_ready_xanthan_positive_20260529"
 OUT.mkdir(parents=True, exist_ok=True)
 
 TABLES = [

@@ -9,7 +9,7 @@ The workflow converts rheology measurements into ML-ready tables, benchmarks reg
 ```text
 scripts/      Data preparation, model benchmarking, inverse design, and figure generation
 docs/         Reproducibility notes, data dictionary, and manuscript figure guide
-data/         Placeholder for local/private input data; raw data are not committed
+data/         Placeholder for source data; raw workbooks are not committed
 figures/      Selected paper-ready figures plus a placeholder for generated exports
 results/      Compact review-facing result tables
 outputs/      Generated analysis outputs, ignored by git
@@ -17,7 +17,7 @@ outputs/      Generated analysis outputs, ignored by git
 
 ## Peer-Review Package
 
-For peer review, this repository includes enough material to evaluate the computational workflow without exposing raw laboratory workbooks:
+For peer review, this repository includes enough material to evaluate the computational workflow without requiring the full raw workbook archive:
 
 - analysis and figure-generation code in `scripts/`
 - methodological notes in `docs/`
@@ -78,7 +78,7 @@ See [docs/workflow.md](docs/workflow.md) for a fuller execution order and [docs/
 
 ## Data Availability
 
-The raw experimental workbooks are not committed because they may contain unpublished/private laboratory data and can be large. The scripts expect the local file locations used during analysis; before public release, either:
+The raw experimental workbooks are not committed because the full data package is expected to be deposited separately. To reproduce the workflow from raw data, either:
 
 1. deposit raw or ML-ready data in a journal-approved repository, or
 2. provide anonymized ML-ready CSV/XLSX tables and update the input paths in the scripts.
@@ -93,13 +93,12 @@ Internal validation is formulation-based. Entire formulations are held out as un
 
 ## Inverse-Design Validation Candidates
 
-The current inverse-design analysis recommends a small prospective validation set:
+The inverse-design analysis selected the following formulations for experimental validation:
 
-| Purpose | Yeast protein (wt%) | Xanthan gum (wt%) |
-|---|---:|---:|
-| Low-viscosity target | 15.0 | 0.335 |
-| Low-viscosity alternative | 10.25 | 0.465 |
-| Moderate-viscosity target | 20.0 | 0.520 |
-| High-elasticity target | 26.5 | 0.385 |
-
-These formulations are intended for new rheology measurements using the same viscosity, frequency-sweep, and strain-sweep protocols.
+| Target property | Predicted value | Yeast protein (wt%) | Xanthan gum (wt%) | Experimental value | Relative error (%) |
+|---|---:|---:|---:|---:|---:|
+| eta50 | 200 mPa s | 15.0 | 0.335 | 150.1 +/- 1.1 | -24.9 |
+| eta50 | 200 mPa s | 10.25 | 0.465 | 216.7 +/- 8.8 | 8.4 |
+| eta50 | 500 mPa s | 24.5 | 0.260 | 404.5 +/- 17.2 | -19.1 |
+| G' at 1 Hz | 100 Pa | 24.75 | 0.295 | 70.6 +/- 4.7 | -29.4 |
+| G' at 1 Hz | 500 Pa | 26.5 | 0.385 | 421.9 +/- 69.7 | -15.6 |

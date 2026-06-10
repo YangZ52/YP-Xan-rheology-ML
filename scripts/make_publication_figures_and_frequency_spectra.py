@@ -28,9 +28,9 @@ except Exception:
     XGBRegressor = None
 
 
-DATA_DIR = Path("/Users/zhiy/Documents/Rheology ML/outputs/ml_ready_xanthan_positive_20260529")
+DATA_DIR = Path(__file__).resolve().parents[1] / "outputs" / "ml_ready_xanthan_positive_20260529"
 RUN_ID = os.environ.get("RHEOLOGY_PUBFIG_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
-OUT_DIR = Path(f"/Users/zhiy/Documents/Rheology ML/outputs/publication_figures_frequency_spectra_{RUN_ID}")
+OUT_DIR = Path(__file__).resolve().parents[1] / "outputs" / f"publication_figures_frequency_spectra_{RUN_ID}"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 MODEL_ORDER = [
@@ -299,7 +299,7 @@ def plot_frequency_curves(preds):
 
 
 def latest_ml_results_dir():
-    candidates = sorted(Path("/Users/zhiy/Documents/Rheology ML/outputs").glob("ML_results_xanthan_positive_*"), key=lambda p: p.stat().st_mtime)
+    candidates = sorted((Path(__file__).resolve().parents[1] / "outputs").glob("ML_results_xanthan_positive_*"), key=lambda p: p.stat().st_mtime)
     return candidates[-1] if candidates else None
 
 

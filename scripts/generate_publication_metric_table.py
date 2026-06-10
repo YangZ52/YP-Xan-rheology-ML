@@ -13,9 +13,9 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
-ONEDRIVE_ROOT = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
+ARCHIVE_ROOT = Path(os.environ.get("RHEOLOGY_ARCHIVE_ROOT", ROOT / "outputs"))
 RUN_ID = os.environ.get("RHEOLOGY_TABLE_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
 OUT_DIR = OUTPUTS / f"publication_metric_table_{RUN_ID}"
 

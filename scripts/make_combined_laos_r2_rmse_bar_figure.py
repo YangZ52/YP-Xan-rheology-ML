@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 SOURCE_RUN = ROOT / "outputs" / "publication_formulation_laos_model_suite_20260531_130806"
 METRICS_PATH = SOURCE_RUN / "all_model_metrics_internal_external.csv"
 RUN_ID = datetime.now().strftime("%Y%m%d_%H%M%S")

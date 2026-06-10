@@ -21,11 +21,11 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "outputs" / "ml_ready_xanthan_positive_20260529"
 RUN_ID = os.environ.get("RHEOLOGY_FREQ_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
 OUT_DIR = ROOT / "outputs" / f"improved_frequency_spectra_{RUN_ID}"
-ONEDRIVE_ROOT = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
+ARCHIVE_ROOT = Path(os.environ.get("RHEOLOGY_ARCHIVE_ROOT", ROOT / "outputs"))
 
 FREQ_MIN = 0.01
 FREQ_MAX = 6.31

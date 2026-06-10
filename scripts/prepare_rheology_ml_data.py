@@ -1,5 +1,6 @@
 import json
 import math
+import os
 import re
 from pathlib import Path
 
@@ -7,8 +8,9 @@ import numpy as np
 import pandas as pd
 
 
-SOURCE_DIR = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
-OUT_DIR = Path("/Users/zhiy/Documents/Rheology ML/outputs/ml_ready_20260529")
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE_DIR = Path(os.environ.get("RHEOLOGY_DATA_ROOT", ROOT / "data" / "raw"))
+OUT_DIR = ROOT / "outputs" / "ml_ready_20260529"
 
 FILES = {
     "viscosity_train": "Viscosity_modeling_ready_parsed_20260411.xlsx",
@@ -352,7 +354,7 @@ def build_outputs():
     tables = {
         "README": pd.DataFrame([
             {"item": "purpose", "description": "ML-ready rheology tables for yeast protein particle + xanthan gum dysphagia formulations."},
-            {"item": "safety", "description": "Original OneDrive files were read only. Cleaned outputs are written in the local Rheology ML workspace."},
+            {"item": "safety", "description": "Original source data files were read only. Cleaned outputs are written in the local Rheology ML workspace."},
             {"item": "key", "description": "Use formulation_std, yp_pct, xanthan_pct, replicate, and split to join tables."},
             {"item": "split", "description": "train = original modeling/training files; predict = external prediction/holdout files; strain_only = strain workbook."},
             {"item": "recommended_GPR_targets", "description": "Start with log10_eta_50, log10_Gp_1Hz, tan_delta_1Hz, break_strain_pct, break_stress_Pa, and LVR_pct."},

@@ -32,11 +32,11 @@ except Exception:  # pragma: no cover
     XGBRegressor = None
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "outputs" / "ml_ready_xanthan_positive_20260529"
-ONEDRIVE_ROOT = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
+ARCHIVE_ROOT = Path(os.environ.get("RHEOLOGY_ARCHIVE_ROOT", ROOT / "outputs"))
 RUN_ID = os.environ.get("RHEOLOGY_FORMULATION_LAOS_SUITE_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
-OUTPUT_ROOT = Path(os.environ.get("RHEOLOGY_OUTPUT_ROOT", ONEDRIVE_ROOT if ONEDRIVE_ROOT.exists() else ROOT / "outputs"))
+OUTPUT_ROOT = Path(os.environ.get("RHEOLOGY_OUTPUT_ROOT", ARCHIVE_ROOT if ARCHIVE_ROOT.exists() else ROOT / "outputs"))
 OUT_DIR = OUTPUT_ROOT / "time_lapse" / f"publication_formulation_laos_model_suite_{RUN_ID}"
 DPI = 600
 INTERNAL_LABEL = "Internal balanced 5-fold CV"

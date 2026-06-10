@@ -14,7 +14,7 @@ This directory contains compact result tables included for manuscript peer revie
   Surrogate-model validation metrics used to support inverse-design scoring.
 
 - `peer_review/recommended_experimental_validation_candidates.csv`  
-  Candidate formulations proposed by the inverse-design analysis for prospective rheology validation.
+  Final inverse-designed formulations selected for experimental validation, with target values, measured values, and relative errors.
 
 ## Notes
 

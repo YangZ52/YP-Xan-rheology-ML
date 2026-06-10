@@ -11,9 +11,9 @@ import numpy as np
 import pandas as pd
 
 
-ROOT = Path("/Users/zhiy/Documents/Rheology ML")
+ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
-ONEDRIVE_ROOT = Path("/Users/zhiy/Library/CloudStorage/OneDrive-Personal/GPR new")
+ARCHIVE_ROOT = Path(os.environ.get("RHEOLOGY_ARCHIVE_ROOT", ROOT / "outputs"))
 RUN_ID = os.environ.get("RHEOLOGY_MAIN_TARGET_FIG_RUN_ID") or datetime.now().strftime("%Y%m%d_%H%M%S")
 OUT_DIR = OUTPUTS / f"main_target_publication_figures_{RUN_ID}"
 
